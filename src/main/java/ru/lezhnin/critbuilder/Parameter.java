@@ -1,4 +1,7 @@
 package ru.lezhnin.critbuilder;
 
-public class Parameter<T> {
+public interface Parameter<T> extends Value<T> {
+    void setValue(T value);
+    Boolean isEmpty();
+    Boolean nonEmpty();
 }
