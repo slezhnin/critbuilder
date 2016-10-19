@@ -2,8 +2,8 @@ package ru.lezhnin.critbuilder;
 
 import javax.annotation.Nonnull;
 
-public class ExpressionLT<T extends Comparable<T>> extends ExpressionCompare<T> {
-    public ExpressionLT(@Nonnull Value<T> left, @Nonnull Value<T> right) {
+class ExpressionLT<T extends Comparable<T>> extends ExpressionCompare<T> {
+    ExpressionLT(@Nonnull Value<T> left, @Nonnull Value<T> right) {
         super(left, right);
     }
 

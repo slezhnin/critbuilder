@@ -2,8 +2,8 @@ package ru.lezhnin.critbuilder;
 
 import javax.annotation.Nonnull;
 
-public class ExpressionStringIsEmpty extends UnaryExpression<String> {
-    public ExpressionStringIsEmpty(@Nonnull Value<String> operand) {
+class ExpressionStringIsEmpty extends UnaryExpression<String> {
+    ExpressionStringIsEmpty(@Nonnull Value<String> operand) {
         super(operand);
     }
 
