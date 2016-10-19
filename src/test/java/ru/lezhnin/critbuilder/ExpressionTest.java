@@ -21,9 +21,17 @@ public class ExpressionTest {
         );
         assertTrue(stringExpressionNE.call());
         ExpressionStringIsEmpty expressionStringIsEmpty = new ExpressionStringIsEmpty(new ValueHolder<>("test"));
-        assertTrue(new OperationNot(expressionStringIsEmpty).call());
-        assertTrue(new OperationAnd(stringExpressionEQ, stringExpressionNE).call());
-        assertTrue(new OperationOr(stringExpressionEQ, expressionStringIsEmpty).call());
+        assertTrue(new OperationNOT(expressionStringIsEmpty).call());
+        assertTrue(new OperationAND(stringExpressionEQ, stringExpressionNE).call());
+        assertTrue(new OperationOR(stringExpressionEQ, expressionStringIsEmpty).call());
+        ValueHolder<Integer> int1 = new ValueHolder<>(1);
+        ValueHolder<Integer> int2 = new ValueHolder<>(2);
+        assertTrue(new ExpressionGE<>(int2, int1).call());
+        assertTrue(new ExpressionGE<>(int1, int1).call());
+        assertTrue(new ExpressionGT<>(int2, int1).call());
+        assertTrue(new ExpressionLE<>(int1, int2).call());
+        assertTrue(new ExpressionLE<>(int1, int1).call());
+        assertTrue(new ExpressionLT<>(int1, int2).call());
     }
 
     @Rule

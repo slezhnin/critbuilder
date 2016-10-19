@@ -2,8 +2,8 @@ package ru.lezhnin.critbuilder;
 
 import javax.annotation.Nonnull;
 
-class OperationAnd extends BinaryOperation {
-    public OperationAnd(@Nonnull Operation left, @Nonnull Operation right) {
+class OperationAND extends BinaryOperation {
+    public OperationAND(@Nonnull Operation left, @Nonnull Operation right) {
         super(left, right);
     }
 
