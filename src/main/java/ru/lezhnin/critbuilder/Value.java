@@ -1,5 +1,8 @@
 package ru.lezhnin.critbuilder;
 
-public interface Value<T> {
-    T getValue();
+import javax.annotation.Nonnull;
+
+interface Value<T> {
+    @Nonnull
+    T getValue() throws EmptyParameterError;
 }

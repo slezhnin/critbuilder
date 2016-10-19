@@ -1,16 +1,14 @@
 package ru.lezhnin.critbuilder;
 
-class OperationAnd implements Operation {
-    private final Operation left;
-    private final Operation right;
+import javax.annotation.Nonnull;
 
-    public OperationAnd(Operation left, Operation right) {
-        this.left = left;
-        this.right = right;
+class OperationAnd extends BinaryOperation {
+    public OperationAnd(@Nonnull Operation left, @Nonnull Operation right) {
+        super(left, right);
     }
 
     @Override
     public Boolean call() throws Exception {
-        return left.call() && right.call();
+        return getLeft().call() && getRight().call();
     }
 }

@@ -1,6 +1,9 @@
 package ru.lezhnin.critbuilder;
 
-public interface Parameter<T> extends Value<T> {
+import javax.annotation.Nonnull;
+
+interface Parameter<T> extends Value<T> {
+    @Nonnull String getName();
     void setValue(T value);
     Boolean isEmpty();
     Boolean nonEmpty();

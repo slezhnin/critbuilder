@@ -1,12 +1,15 @@
 package ru.lezhnin.critbuilder;
 
-class ValueHolder<T> implements Value<T> {
-    private final T value;
+import javax.annotation.Nonnull;
 
-    public ValueHolder(T value) {
+class ValueHolder<T> implements Value<T> {
+    private final @Nonnull T value;
+
+    public ValueHolder(@Nonnull T value) {
         this.value = value;
     }
 
+    @Nonnull
     @Override
     public T getValue() {
         return value;

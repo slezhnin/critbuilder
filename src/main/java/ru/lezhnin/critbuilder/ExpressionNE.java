@@ -1,8 +1,8 @@
 package ru.lezhnin.critbuilder;
 
-class OperationNE<L, R> extends OperationEQ<L, R> {
+class ExpressionNE<L, R> extends ExpressionEQ<L, R> {
 
-    public OperationNE(Value<L> left, Value<R> right) {
+    public ExpressionNE(Value<L> left, Value<R> right) {
         super(left, right);
     }
 
