@@ -1,27 +1,28 @@
 package ru.lezhnin.critbuilder;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 class ParameterHolder<T> implements Parameter<T> {
     private @Nonnull String name;
-    private T value;
+    private @Nullable T value;
 
-    public ParameterHolder(@Nonnull String name) {
+    ParameterHolder(@Nonnull String name) {
         this(name, null);
     }
 
-    public ParameterHolder(@Nonnull String name, T value) {
+    ParameterHolder(@Nonnull String name, @Nullable T value) {
         this.name = name;
         this.value = value;
     }
 
     @Nonnull
     @Override
-    public T getValue() throws EmptyParameterError {
-        if (nonEmpty()) {
+    public T getValue() throws ParameterEmptyException {
+        if (value != null) {
             return value;
         }
-        throw new EmptyParameterError(getName());
+        throw new ParameterEmptyException(getName());
     }
 
     @Nonnull
