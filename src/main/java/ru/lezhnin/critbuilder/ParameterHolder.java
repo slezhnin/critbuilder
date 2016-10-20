@@ -4,45 +4,48 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 class ParameterHolder<T> implements Parameter<T> {
-    private @Nonnull String name;
-    private @Nullable T value;
 
-    ParameterHolder(@Nonnull String name) {
-        this(name, null);
-    }
+	@Nonnull
+	private final String name;
+	@Nullable
+	private T value;
 
-    ParameterHolder(@Nonnull String name, @Nullable T value) {
-        this.name = name;
-        this.value = value;
-    }
+	ParameterHolder(@Nonnull String name) {
+		this(name, null);
+	}
 
-    @Nonnull
-    @Override
-    public T getValue() throws ParameterEmptyException {
-        if (value != null) {
-            return value;
-        }
-        throw new ParameterEmptyException(getName());
-    }
+	ParameterHolder(@Nonnull String name, @Nullable T value) {
+		this.name = name;
+		this.value = value;
+	}
 
-    @Nonnull
-    @Override
-    public String getName() {
-        return name;
-    }
+	@Nonnull
+	@Override
+	public T getValue() throws ParameterEmptyException {
+		if (value != null) {
+			return value;
+		}
+		throw new ParameterEmptyException(getName());
+	}
 
-    @Override
-    public void setValue(T value) {
-        this.value = value;
-    }
+	@Nonnull
+	@Override
+	public String getName() {
+		return name;
+	}
 
-    @Override
-    public Boolean isEmpty() {
-        return null == value;
-    }
+	@Override
+	public void setValue(T value) {
+		this.value = value;
+	}
 
-    @Override
-    public Boolean nonEmpty() {
-        return null != value;
-    }
+	@Override
+	public Boolean isEmpty() {
+		return null == value;
+	}
+
+	@Override
+	public Boolean nonEmpty() {
+		return null != value;
+	}
 }
